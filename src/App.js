@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "@emotion/styled";
 import Quote from "./Components/Quote";
 
@@ -35,6 +35,11 @@ const Button = styled.button`
 function App() {
   //Quotes state
   const [quote, saveQuote] = useState({});
+
+  //Load a quote
+  useEffect(() => {
+    fetchApi();
+  }, []);
 
   const fetchApi = async () => {
     const api = await fetch(
